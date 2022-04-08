@@ -9,13 +9,13 @@ menu:
 
 Hola, aquí vas a leer un poco sobre mi 🤩
 
-> Excidit gente, si orat suo quaeque dura Calydon nata? Pars auro post stetit
-> adfusique imis amplexus. Agmina per fabricator
-> mittere Erymanthon habetque tot.
+Hey, me llamo Hector García. Soy guitarrista, estudié en la Facultad de Música de la UNAM. 
+Me enamoré de la guitarra desde la primera vez que tuve una en mis manos y desde entonces 
+se me hizo imposible soltarla. 
+Algo así me está pasando con la programacón y espero se vuelva una nueva habilidad
+que me ayude a enfocarme en nuevos aspectos de la vida. 
 
-**Cineres Nile ipsa** origine discurrunt adest Unde, et quem clausus, imo,
-virens quoque tales, potuit. Ingentes insilit corpore nutricis praebebat roganti
-licuit. Denique a vestros adulantum in bella lina parte et arte generi di igitur
-quis, digitis pedes. Cum resonant tamen, namque in anxia. Non nostri trahens
-ancora.
+Tengo un gato que se llama Debussy, si como el compositor.
+Disfruto de leer mucho y actualmente toco en el Cuarteto de Guitarras Delfos con quienes he
+obtenido diferentes premios en concursos internacionales y aún mas importante son mis amigos. 
 
