@@ -8,6 +8,15 @@
     <language>en-us</language>
     <lastBuildDate>Sun, 24 Feb 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://ghector6.github.io/my_launchx_blog/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Learning Cypress Pt.1</title>
+      <link>https://ghector6.github.io/my_launchx_blog/posts/post_4_cypresspt1/</link>
+      <pubDate>Tue, 26 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghector6.github.io/my_launchx_blog/posts/post_4_cypresspt1/</guid>
+      <description>What is Cypress ❓ -Cypress is an end to end testing tool for QA engineers and for developers. end to end is a methodology used in SDLC 🤖 to test an application under &amp;ldquo;real life circumstances&amp;rdquo;.-Cypress is independent to Selenium, it works with NodeJs and JS, so we can have better interaction with it.-The main goal of cypress is to focus on giving the user the best experience by creatin end to end testing meaning it will simulate the way a user is going to use our app product🧠.</description>
+    </item>
+    
+    <item>
       <title>Semana 1 de BackEnd</title>
       <link>https://ghector6.github.io/my_launchx_blog/posts/post_3/</link>
       <pubDate>Tue, 12 Apr 2022 00:00:00 +0000</pubDate>
