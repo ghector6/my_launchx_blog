@@ -17,6 +17,16 @@
     </item>
     
     <item>
+      <title>Learning Cypress Pt.2</title>
+      <link>https://ghector6.github.io/my_launchx_blog/posts/post_5_cypresspt2/</link>
+      <pubDate>Tue, 26 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghector6.github.io/my_launchx_blog/posts/post_5_cypresspt2/</guid>
+      <description>Starting Cypress and Writting our first code. 🚀 Starting ▶️ Once you have installed Cypress and edit your script at the package.json we neeed to run the application in a separate terminal window because Cypress needs it in order to execute tests ✔️.
+Enter the following command to start the app yarn start this will make the server work, in another terminal you can open CYPRESS with yarn cypress:open that will display a new browser window with the files from your directory.</description>
+    </item>
+    
+    <item>
       <title>Semana 1 de BackEnd</title>
       <link>https://ghector6.github.io/my_launchx_blog/posts/post_3/</link>
       <pubDate>Tue, 12 Apr 2022 00:00:00 +0000</pubDate>

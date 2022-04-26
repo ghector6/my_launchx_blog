@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Learning Cypress Pt.2 - Bitácora de Viaje de Hector Garcia</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="https://ghector6.github.io/my_launchx_blog/favicon.png">
+
+  
+  
+  <link rel="stylesheet" href="../../css/style.min.4f4767d518839223786999cdb69fc7a63791220ecccd236bc732a5f998aaee2d.css">
+  
+
+  
+    <meta name="description" content="Starting Cypress and Writting my first test"/>
+    <meta property="og:title" content="Learning Cypress Pt.2"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://ghector6.github.io/my_launchx_blog/posts/post_5_cypresspt2/"/>
+    
+    <meta property="og:description" content="Starting Cypress and Writting my first test"/>
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:site" content="@ghector6"/>
+    <meta name="twitter:creator" content="@ghector6"/>
+  
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet"> 
+</head>
+
+
+
+
+<body class='page frame page-blog-single'>
+  <div id="wrapper" class="wrapper">
+    <div class='header'>
+  <a class="header-logo" href="https://ghector6.github.io/my_launchx_blog/">Bitácora de Viaje de Hector Garcia</a>
+  <div class="menu-main">
+    <ul>
+        
+        
+            <li class="menu-item-aboutme">
+                <a href="../../pages/about/">AboutMe</a>
+            </li>
+        
+            <li class="menu-item-posts">
+                <a href="../../posts/">Posts</a>
+            </li>
+        
+    </ul>
+  </div>
+</div>
+    
+  <div class="blog">
+    
+    <div class="intro">
+      <h1>Learning Cypress Pt.2<span class="dot">.</span></h1>
+      
+    </div>
+    <div class="content">
+      <h1 id="starting-cypress-and-writting-our-first-code-">Starting Cypress and Writting our first code. 🚀</h1>
+<h2 id="starting-">Starting ▶️</h2>
+<p>Once you have installed Cypress and edit your script at the package.json we neeed to run the application in a separate terminal window because Cypress needs it
+in order to execute tests ✔️.</p>
+<p>Enter the following command to start the app <code>yarn start</code> this will make the server work, in another terminal you can open CYPRESS with <code>yarn cypress:open</code> that will display
+a new browser window with the files from your directory. You can now choose bewtween different browsers.</p>
+<h2 id="writing-our-first-test-">Writing our first test 🤓</h2>
+<ul>
+<li>We first need to create our file 🗃️.</li>
+<li>We use the function <code>describe()</code> to organize our tests. inside the () we put the name  of our block and assign the function: <code>describe(&quot;React todoMVC&quot;, () =&gt; {})</code> .</li>
+<li>Within the describe block we will write the name of our tests using <code>it()</code> function and assigning it a name that descibes what that test do.
+FI: <code>it(&quot;adds a single todo&quot;, () =&gt;{})</code> so far the statement ends up looking like this:</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/99938141/165397357-754254fa-aa7a-4f25-ac29-e0e714ca49a2.png" alt="image"></p>
+<ul>
+<li>To write the test 📄 we first need to know what are we testing and its requirements, in this case we´re addding todos, so we need</li>
+</ul>
+<ol>
+<li>Focus on the input field.</li>
+<li>Enter the name of our todo.</li>
+<li>Press enter to add our todo.</li>
+</ol>
+<h3 id="writing-this-steps-in-our-test-">Writing this steps in our test 🧪</h3>
+<ul>
+<li>We need to grab the input field from the DOM in order to assign the right elemento to Cypress, for this, using the dev tools from our browser will help.</li>
+<li>Once we know the element (a class in this case) name we can assign a <code>cy.get()</code> to this element, like this : <code>cy.get(&quot;.new-todo&quot;) //this targets the class new-todo</code>
+so, our entire test will look like this at this point 🛗  .</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">describe(&#34;React TodoMVC&#34;, () =&gt; {
+  it(&#34;adds a single todo&#34;, () =&gt; {
+    cy.get(&#34;.new-todo&#34;)
+  })
+}) 
+</code></pre></div><ul>
+<li>Once Cypress is launched, you will see several files, select our file. With the acxtual code we´re going to have this error</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/99938141/165400645-350f2317-699e-4a8b-8963-b3efb2e84de4.png" alt="image"></p>
+<p>This error is telling us that it is unable to get the cy.get() this is because we are not telling Cypress where it can get the info from ❎.</p>
+<ul>
+<li>To tell Cypress where to get the info from, we will need to add <code>cy.()</code> , this will look like this:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">describe(&#34;React TodoMVC&#34;, () =&gt; {
+  it(&#34;adds a single todo&#34;, () =&gt; {
+    cy.visit(&#34;http://localhost8888&#34;)
+    cy.get(.new-todo&#34;)
+  })
+})
+</code></pre></div><ul>
+<li>Everytime you save the file Cypress runs. Now we can se that our file is conected 🌐.</li>
+<li>Now we can enter a name of our to todo by using the <code>cy.type()</code> adding a string of our choice to type in the input. this looks like this <code>cy.get(&quot;.new-todo).type(&quot;Learn Cypress&quot;)</code></li>
+<li>As it is a end to end it simulates what a user would do so we can add a {enter} like this.  <code>cy.get(&quot;.new-todo).type(&quot;Learn Cypress{enter}&quot;)</code>.
+this will pass the info to the list:</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/99938141/165403008-e7b06b6e-29ee-492a-ac91-ddda8840909b.png" alt="image"></p>
+<p>So far our test file will look like this 🗄️.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">describe(&#34;React TodoMVC&#34;, () =&gt; {
+  it(&#34;adds a single todo&#34;, () =&gt; {
+    cy.visit(&#34;http://localhost8888&#34;)
+    cy.get(.new-todo&#34;).type(&#34;Learn Cypress{enter}&#34;)
+  })
+})
+</code></pre></div><h4 id="now-what-">Now what ❔</h4>
+<p>Our test confirms that we can add a single todo but now we need a way to see if it is only going to be one todo. we can do this like this:</p>
+<ol>
+<li>With the dev tools we need to inspect where is our todo added.</li>
+<li>Now that we know where it is and the type of element, a li this time, we make an assertion that only one li element exists in our app todo 👓:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">describe(&#34;React TodoMVC&#34;, () =&gt; {
+  it(&#34;adds a single todo&#34;, () =&gt; {
+    cy.visit(&#34;http://localhost:8888&#34;)
+    cy.get(&#34;.new-todo&#34;).type(&#34;Learn Cypress{enter}&#34;)
+    cy.get(&#34;.todo-list li&#34;).should(&#34;have.length&#34;, 1)
+  })
+})
+</code></pre></div><ul>
+<li>If we add another todo to the test it is goig to break 🖍️.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">describe(&#34;React TodoMVC&#34;, () =&gt; {
+  it(&#34;adds a single todo&#34;, () =&gt; {
+    cy.visit(&#34;http://localhost:8888&#34;)
+    cy.get(&#34;.new-todo&#34;).type(&#34;Learn Cypress{enter}&#34;)
+    cy.get(&#34;.new-todo&#34;).type(&#34;Learn Java{enter}&#34;)
+    cy.get(&#34;.todo-list li&#34;).should(&#34;have.length&#34;, 1)
+  })
+})
+</code></pre></div><ul>
+<li>We can simplify this statement like this and change the length in order to make it pass. 🥇</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">describe(&#34;React TodoMVC&#34;, () =&gt; {
+  it(&#34;adds a single todo&#34;, () =&gt; {
+    cy.visit(&#34;http://localhost:8888&#34;)
+    cy.get(&#34;.new-todo&#34;).type(&#34;Learn Cypress{enter}&#34;).type(&#34;Learn JavaScript{enter}&#34;)
+    cy.get(&#34;.todo-list li&#34;).should(&#34;have.length&#34;, 2)
+  })
+})
+</code></pre></div>
+    </div>
+  </div>
+
+    <div class="footer">
+  
+  <div class="footer-social">
+    
+      <span class="social-icon social-icon-twitter">
+        <a href="https://twitter.com/ghector6" title="twitter" target="_blank" rel="noopener">
+          <img src="../../images/social/twitter.svg" width="24" height="24" alt="twitter"/>
+        </a>
+      </span>
+    
+      <span class="social-icon social-icon-github">
+        <a href="https://github.com/ghector6" title="github" target="_blank" rel="noopener">
+          <img src="../../images/social/github.svg" width="24" height="24" alt="github"/>
+        </a>
+      </span>
+    
+  </div>
+  
+</div>
+  </div>
+
+  
+
+  
+
+  
+  <script type="text/javascript" src="../../js/bundle.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js"></script>
+  
+
+  
+  
+
+  
+  
+  
+    
+  
+
+
+</body>
+</html>
