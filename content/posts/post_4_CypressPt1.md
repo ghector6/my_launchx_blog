@@ -6,15 +6,21 @@ description: 'What is Cypress and how to install it'
 
 # What is Cypress ❓ 
 
--Cypress is an end to end testing tool for QA engineers and for developers. end to end is a methodology used in SDLC 🤖 to test an application under "real life circumstances".<br>
+-Cypress is an end to end testing tool for QA engineers and for developers. end to end is a methodology used in SDLC 🤖 to test an application under "real life circumstances".<br> 
+
 -Cypress is independent to Selenium, it works with NodeJs and JS, so we can have better interaction with it.<br>
+
 -The main goal of cypress is to focus on giving the user the best experience by creatin end to end testing meaning it will simulate the way a user 
 is going to use our app product🧠.<br>
+
 -Cypress can work with any front-end framework (anything that runs through a web browser basically) such as React, Angular, Vue. But it´s a powerfull tool that also works 
 with older server rendered pages or apps 🧰.<br>
+
 -Cypress only works with JavaScript ✍️ .<br>
+
 -One of the best features in Cypress is that when installed it comes with multiple tools in one, so we don´t need to install tons of libraries in order to use it
 and they aso come working together properly. 😀<br>
+
 -Another cool feature is how fast it is, it is built in order to make the testing and the development process both simultaneously, making your code better, cleaner and more
 efficient.
 
