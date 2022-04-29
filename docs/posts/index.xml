@@ -8,6 +8,15 @@
     <language>en-us</language>
     <lastBuildDate>Sun, 24 Feb 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://ghector6.github.io/my_launchx_blog/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Learning Cypress Pt. 4</title>
+      <link>https://ghector6.github.io/my_launchx_blog/posts/post_7_cypresspt4/</link>
+      <pubDate>Fri, 29 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://ghector6.github.io/my_launchx_blog/posts/post_7_cypresspt4/</guid>
+      <description>How to use Cypress Commands ❓ Cypress Commands are custom commands that we can write ourselves to test code, this is convenient cause it makes re-usable ♻️ our test code. They become very useful when the code test suit grows, so here we´re going to talk about some of the simpliest, for that we´re going to create a command that allows us to do some default values for us. (this way we´re going to have just a single line of code that will do the work).</description>
+    </item>
+    
+    <item>
       <title>Learning Cypress Pt. 3</title>
       <link>https://ghector6.github.io/my_launchx_blog/posts/post_6_cypresspt3/</link>
       <pubDate>Wed, 27 Apr 2022 00:00:00 +0000</pubDate>

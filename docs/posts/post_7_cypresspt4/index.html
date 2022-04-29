@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Learning Cypress Pt. 4 - Bitácora de Viaje de Hector Garcia</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="https://ghector6.github.io/my_launchx_blog/favicon.png">
+
+  
+  
+  <link rel="stylesheet" href="../../css/style.min.4f4767d518839223786999cdb69fc7a63791220ecccd236bc732a5f998aaee2d.css">
+  
+
+  
+    <meta name="description" content="How to use Cypress Commands"/>
+    <meta property="og:title" content="Learning Cypress Pt. 4"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://ghector6.github.io/my_launchx_blog/posts/post_7_cypresspt4/"/>
+    
+    <meta property="og:description" content="How to use Cypress Commands"/>
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:site" content="@ghector6"/>
+    <meta name="twitter:creator" content="@ghector6"/>
+  
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet"> 
+</head>
+
+
+
+
+<body class='page frame page-blog-single'>
+  <div id="wrapper" class="wrapper">
+    <div class='header'>
+  <a class="header-logo" href="https://ghector6.github.io/my_launchx_blog/">Bitácora de Viaje de Hector Garcia</a>
+  <div class="menu-main">
+    <ul>
+        
+        
+            <li class="menu-item-about me">
+                <a href="../../pages/about/">About Me</a>
+            </li>
+        
+            <li class="menu-item-posts">
+                <a href="../../posts/">Posts</a>
+            </li>
+        
+    </ul>
+  </div>
+</div>
+    
+  <div class="blog">
+    
+    <div class="intro">
+      <h1>Learning Cypress Pt. 4<span class="dot">.</span></h1>
+      
+    </div>
+    <div class="content">
+      <h1 id="how-to-use-cypress-commands-">How to use Cypress Commands ❓</h1>
+<p>Cypress Commands are custom commands that we can write ourselves to test code, this is convenient cause it makes re-usable ♻️
+our test code. They become very useful when the code test suit grows, so here we´re going to talk about some of the simpliest,
+for that we´re going to create a command that allows us to do some default values for us. (this way we´re going to have just a
+single line of code that will do the work). 👷</p>
+<h2 id="creating-our-first-custom-cypresscommands-">Creating our first custom Cypress.Commands. 🏗️</h2>
+<p>We´re going to need some steps for this. 👣</p>
+<ol>
+<li>Open the cypress/support/commands.js and write the following: 📂</li>
+</ol>
+<p><img src="https://user-images.githubusercontent.com/99938141/165990242-0eeb339a-955d-4015-a17e-150bddc132af.png" alt="image"></p>
+<p>this assigns the name &ldquo;createDefaultTodos&rdquo; to our command and it´s the name that we´re going to be using in order to call it.</p>
+<ol start="2">
+<li>Copy the variables form our test file that used to look like this. 🖨️</li>
+</ol>
+<p><img src="https://user-images.githubusercontent.com/99938141/165990437-98922145-166b-4aed-af27-33e9f8d9a957.png" alt="image"></p>
+<ol start="3">
+<li>Then we add the ability to create our todos, ( remember that when adding the .type() we´re telling Cypress that literally write that at some spot, that spot is
+going to be assigned by the .get() and what we specified inside the (). 📝</li>
+</ol>
+<p><img src="https://user-images.githubusercontent.com/99938141/165991078-88d1ff8f-3db1-462c-b713-866ec4b36292.png" alt="image"></p>
+<ol start="4">
+<li>Now we can update our test (the second one in the previous chapter) by adding the <code>cy.createDefaultTodos()</code> this is basically a function that calls from
+the info that we put in the commands.js 📲 so we are saving code lines by just adding one. right after we assign by the <code>cy.get(&quot;.todo-list li&quot;)</code> where to look for
+our todos inputs and count the number of todos by adding the .should() ending up with something like this. ⤵️</li>
+</ol>
+<p><img src="https://user-images.githubusercontent.com/99938141/165993132-921186b5-0f13-47ee-bb02-fb7897efcb50.png" alt="image"></p>
+<ul>
+<li>Our tests must be passig right by now. Remember you can check more about the syntaxis and the params at : <a href="https://docs.cypress.io/api/cypress-api/custom-commands#Usage">https://docs.cypress.io/api/cypress-api/custom-commands#Usage</a></li>
+</ul>
+<h2 id="testing-the-order-in-which-todos-are-added-">Testing the order in which todos are added. ➕</h2>
+<p>We are going to check now if the todos are added in order. for this we´re going to need a new it test. Remember to use the <code>cy.createDefaultTodos()</code> to add
+the ones we create before with the comands.</p>
+<ol>
+<li>Our code will look like this:</li>
+</ol>
+<p><img src="https://user-images.githubusercontent.com/99938141/165994326-313b7c18-451e-40dc-8d42-3af441a98fbd.png" alt="image"></p>
+<p>Lets break it down 🤯</p>
+<p>The cy.get() is telling us where to look for the item, which in this case is in list named .todo.list li, the eq() tells us the index of where to look at,
+the find() is telling us to look for a label inside that list, and the should() is telling what to look for at the item 1.
+that for every other line of code but the different objects.</p>
+<p>Now we can test if the if the 3 todos have been added in the previous we used <code>cy.get(&quot;.todo-list li&quot;).should(&quot;have.length&quot;, 3)</code> but lets do it different.</p>
+<h3 id="using-contains-to-count-the-items-">Using <code>contains()</code> to count the items 🔢</h3>
+<p>If we look at the left bottom corner of our app we will see a text that indicates the amount of items left to do. Let´s look at it with our dev tools 👁️‍🗨️
+by this we can map the route to it which is at an span with the name .todo-count.</p>
+<p><img src="https://user-images.githubusercontent.com/99938141/165998262-9185be4b-493a-4c73-ab3e-b21e47ffb363.png" alt="image"></p>
+<p>Now we can target with the get() this spot and analize if it contains 3 elements left. Like this:</p>
+<p><img src="https://user-images.githubusercontent.com/99938141/165997275-01c3277c-3d77-4c00-9d94-68033ac08efa.png" alt="image"></p>
+<p>Now our entire test looks like this:</p>
+<p><img src="https://user-images.githubusercontent.com/99938141/165997387-bf740a8f-91d4-4268-b280-837b7528c0fd.png" alt="image"></p>
+<h2 id="thing-to-have-in-mind">Thing to have in mind:</h2>
+<p>our .todo-count is a <!-- raw HTML omitted --> with multiple elements nested inside of it. The number is wrapped in a <!-- raw HTML omitted --> tag, and the words are wrapped in <!-- raw HTML omitted --> tags. The cy.contains() method will find the appropriate text even though it may be nested in several different tags.</p>
+<p>In the above example, we use both cy.should(), and cy.contains().</p>
+
+    </div>
+  </div>
+
+    <div class="footer">
+  
+  <div class="footer-social">
+    
+      <span class="social-icon social-icon-twitter">
+        <a href="https://twitter.com/ghector6" title="twitter" target="_blank" rel="noopener">
+          <img src="../../images/social/twitter.svg" width="24" height="24" alt="twitter"/>
+        </a>
+      </span>
+    
+      <span class="social-icon social-icon-github">
+        <a href="https://github.com/ghector6" title="github" target="_blank" rel="noopener">
+          <img src="../../images/social/github.svg" width="24" height="24" alt="github"/>
+        </a>
+      </span>
+    
+  </div>
+  
+</div>
+  </div>
+
+  
+
+  
+
+  
+  <script type="text/javascript" src="../../js/bundle.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js"></script>
+  
+
+  
+  
+
+  
+  
+  
+    
+  
+
+
+</body>
+</html>
